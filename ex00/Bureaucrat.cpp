@@ -6,14 +6,13 @@
 /*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 16:21:22 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/13 16:57:53 by hariskon         ###   ########.fr       */
+/*   Updated: 2026/10/14 14:53:50 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): name("Noname"){
-    throw 1;
+Bureaucrat::Bureaucrat(): name("Noname"), grade(150){
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other):name(other.name){    

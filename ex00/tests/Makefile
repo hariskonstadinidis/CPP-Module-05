@@ -12,11 +12,13 @@ DEP = $(OBJ:.o=.d)
 GREEN = \033[0;32m
 RESET = \033[0m
 
+.DEFAULT_GOAL := all
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
-	@printf "$(GREEN)✓ $(NAME)$(RESET)\n"
+	@printf "$(GREEN)✓ Compiled $(NAME)$(RESET)\n"
 
 $(BUILD_DIR)/%.o: %.cpp Makefile | $(BUILD_DIR)
 	@$(CXX) $(CXXFLAGS) -I.. -c $< -o $@
@@ -28,13 +30,13 @@ $(BUILD_DIR):
 	@mkdir -p $(BUILD_DIR)
 
 test: $(NAME)
-	./$(NAME)
+	@./$(NAME)
 
 clean:
-	rm -rf $(BUILD_DIR)
+	@rm -rf $(BUILD_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

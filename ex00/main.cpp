@@ -6,7 +6,7 @@
 /*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 10:55:28 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/13 16:58:00 by hariskon         ###   ########.fr       */
+/*   Updated: 2026/10/14 14:54:07 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ int main()
         std::cout << c << "\n";
         std::cout << d << "\n";
     }
-    catch(int e)
-    {
-        std::cout << "No input error\n";
-    }
+    
     catch(Bureaucrat::GradeTooHighException &e)
     {
         std::cout << "grade too high\n";
