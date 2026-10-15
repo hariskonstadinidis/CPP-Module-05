@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
+/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 16:21:22 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/14 17:02:03 by hariskon         ###   ########.fr       */
+/*   Updated: 2026/10/15 19:30:31 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat(): name("Noname"), grade(150){
+Bureaucrat::Bureaucrat(): name("NoName"), grade(150){
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other):name(other.name){    
@@ -60,25 +60,25 @@ std::string Bureaucrat::get_name() const{
     return this->name;
 }
 
-void Bureaucrat::sign_form(Form form){
+void Bureaucrat::sign_form(Form &form){
     try
     {
         form.be_signed(*this);
+        std::cout << "bureaucrat " << this->name << " signed form " << form.get_name() << "\n";
     }
     catch(Form::GradeTooLowException &e)
     {
         std::cout << "bureaucrat " << this->name << " couldn't sign the form " << form.get_name()\
-        << "because of " << e.what() << "\n";
+        << " because of " << e.what();
     }
-    std::cout << "bureaucrat " << this->name << " signed form " << form.get_name() << "\n";
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const noexcept{
-    return ("Grade too high\n");
+    return ("Grade too High\n");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const noexcept{
-    return ("Grade too high\n");
+    return ("Grade too Low\n");
 }
 
 std::ostream &operator <<(std::ostream &file, const Bureaucrat &bureaucrat){

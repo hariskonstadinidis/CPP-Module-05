@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
+/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 15:26:02 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/14 17:00:49 by hariskon         ###   ########.fr       */
+/*   Updated: 2026/10/15 14:19:55 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Form{
 
         //Getters
         std::string   get_name() const;
-        bool                get_is_signed();
+        bool          get_is_signed();
         int           get_grade_sign() const;
         int           get_grade_exec() const;
         

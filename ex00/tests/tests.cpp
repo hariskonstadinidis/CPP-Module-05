@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tests.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
+/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:55:23 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/14 15:13:35 by hariskon         ###   ########.fr       */
+/*   Updated: 2026/10/15 14:21:00 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ TEST_CASE("High GRADE")
     for (int i = 0; i > -2000; i-=100)
     {
         CHECK_THROWS_AS(
-        Bureaucrat("haris", 0),
+        Bureaucrat("haris", i),
         Bureaucrat::GradeTooHighException
         );
     }
@@ -78,9 +78,9 @@ TEST_CASE("High GRADE")
     ); 
 }
 
-TEST_CASE("Invalid input")
+TEST_CASE("Default constructor input")
 {
     Bureaucrat a;
-    CHECK(a.get_name() == "Noname");
+    CHECK(a.get_name() == "NoName");
     CHECK(a.get_grade() == 150);
 }

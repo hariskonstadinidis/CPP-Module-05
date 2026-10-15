@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
+/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 16:21:22 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/14 14:53:50 by hariskon         ###   ########.fr       */
+/*   Updated: 2026/10/15 15:24:44 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): name("Noname"), grade(150){
+Bureaucrat::Bureaucrat(): name("NoName"), grade(150){
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other):name(other.name){    
@@ -39,7 +39,7 @@ Bureaucrat Bureaucrat::operator++(int){
     Bureaucrat temp = *this;
     this->grade--;
     if (this->grade < 1)
-        throw Bureaucrat::GradeTooHighException();
+        throw GradeTooHighException();
     return temp;
 }
 
@@ -47,7 +47,7 @@ Bureaucrat Bureaucrat::operator--(int){
     Bureaucrat temp = *this;
     this->grade++;
     if (this->grade > 150)
-        throw Bureaucrat::GradeTooLowException();
+        throw GradeTooLowException();
     return temp;
 }
 

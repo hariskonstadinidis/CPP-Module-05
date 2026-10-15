@@ -3,36 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
+/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 10:55:28 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/14 16:55:11 by hariskon         ###   ########.fr       */
+/*   Updated: 2026/10/15 18:54:50 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
     try
     {
         Bureaucrat b("haris", 145);
-        Bureaucrat a(b);
+        Bureaucrat a(Bureaucrat("john", 1));
         Bureaucrat d = a;
         Bureaucrat c("nikos", 150);
-        std::cout << a << "\n";
-        std::cout << a << "\n";
-        std::cout << b << "\n";
-        std::cout << c++ << "\n";
-        std::cout << c << "\n";
-        std::cout << d << "\n";
+        
+        Form fa("form_10", 10 , 10);
+        Form fb("form_150", 150 , 150);
+        
+        std::cout << fa.get_is_signed() << "\n";
+        std::cout << fa.get_is_signed() << "\n";
+        
+        a.sign_form(fa);
+        a.sign_form(fb);
+        
+        std::cout << fa.get_is_signed() << "\n";
+        std::cout << fb.get_is_signed() << "\n";
+        
+        Form f_wrong("form_wrong", 151, 1);
     }
     
-    catch(Bureaucrat::GradeTooHighException &e)
+    catch(Form::GradeTooHighException &e)
     {
         std::cout << e.what() << "\n";
     }
-    catch(Bureaucrat::GradeTooLowException &e)
+    catch(Form::GradeTooLowException &e)
     {
         std::cout << e.what() << "\n";
     }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
+/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 16:22:35 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/14 17:00:57 by hariskon         ###   ########.fr       */
+/*   Updated: 2026/10/15 18:53:13 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Bureaucrat{
         int         get_grade() const;
         std::string get_name() const;
         
-        void sign_form(Form form);
+        void sign_form(Form &form);
         
         //Exception classes
         class GradeTooHighException: std::exception{
@@ -43,7 +43,7 @@ class Bureaucrat{
                 const char *what() const noexcept override;
         };
         
-         class GradeTooLowException: std::exception{
+        class GradeTooLowException: std::exception{
             public:
                 const char *what() const noexcept override;
         };
