@@ -6,7 +6,7 @@
 /*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 15:26:02 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/15 19:50:10 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/15 21:06:59 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 class Bureaucrat;
 
 class AForm{
-    private:
+    protected:
         const std::string name;
         bool              is_signed;
         const int         grade_sign;

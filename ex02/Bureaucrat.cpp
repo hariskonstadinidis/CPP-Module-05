@@ -6,12 +6,14 @@
 /*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 16:21:22 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/15 19:46:21 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/15 20:24:50 by hkonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 Bureaucrat::Bureaucrat(): name("NoName"), grade(150){
 }
