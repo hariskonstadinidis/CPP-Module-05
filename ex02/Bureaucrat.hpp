@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 16:22:35 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/15 19:41:38 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/27 16:20:50 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Bureaucrat{
         std::string get_name() const;
         
         void sign_form(AForm &form);
+        void executeForm(AForm const & form) const;
         
         //Exception classes
         class GradeTooHighException: std::exception{

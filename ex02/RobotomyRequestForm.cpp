@@ -3,21 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 20:20:36 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/10/15 21:12:02 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/27 17:44:33 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include <random>
 
-RobotomyRequestForm::RobotomyRequestForm(): AForm(), name("NoName"), is_signed(false), grade_sign(72), grade_exec(45){}
+RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45){
+    throw std::out_of_range("no target input\n");
+}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other): name(other.name), is_signed(other.is_signed),\
-    grade_sign(other.grade_sign), grade_exec(other.grade_exec)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other):\
+AForm(other.name, other.grade_sign, other.grade_exec)
 {
     *this = other;
 }
@@ -26,18 +29,17 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
     if (this != &other)
     {
         this->is_signed = other.is_signed;
+        this->target = other.target;
     }
     return *this;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name): name(name), is_signed(false)\
-    ,grade_sign(72), grade_exec(45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 72, 45)
 {
-    if (grade_exec < 1 || grade_sign < 1)
-        throw AForm::GradeTooHighException();
-    else if (grade_exec > 150 || grade_sign >150)
-        throw AForm::GradeTooLowException();
+    this->target = target;
 }
+
+RobotomyRequestForm::~RobotomyRequestForm(){}
 
 void RobotomyRequestForm::be_signed(Bureaucrat person){
     if (person.get_grade() <= this->grade_sign)
@@ -46,7 +48,22 @@ void RobotomyRequestForm::be_signed(Bureaucrat person){
         throw AForm::GradeTooLowException();
 }
 
-RobotomyRequestForm::~RobotomyRequestForm(){}
+void RobotomyRequestForm::execute(Bureaucrat person) const{
+     if (person.get_grade() <= this->grade_sign)
+    {
+        AForm::execute(person);
+        std::cout << "Drrrrrrrrrrrrrr\n";
+        std::random_device rd;
+        std::uniform_int_distribution<int> range(0, 1);
+        int number = range(rd);
+        if (number)
+            std::cout << this->target << " has been robotomized\n";
+        else
+            std::cout << "Robotomy failed\n";
+    }
+    else
+        throw std::out_of_range("Not signed\n");
+}
 
 const char *RobotomyRequestForm::GradeTooHighException::what() const noexcept{
     return ("Grade too High\n");

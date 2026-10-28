@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 19:53:32 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/10/15 21:10:21 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/27 16:27:18 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@ class Bureaucrat;
 class AForm;
 
 class ShrubberyCreationForm: public AForm{
-  
+    private:
+        std::string target;
+
     public:
         ShrubberyCreationForm();
         ShrubberyCreationForm(const ShrubberyCreationForm &other);
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm &other);
         ~ShrubberyCreationForm();
     
-        ShrubberyCreationForm(std::string name);
+        ShrubberyCreationForm(std::string target);
     
         void be_signed(Bureaucrat person) override;
+        void execute(Bureaucrat person) const override;
         
         //Exception classes
         class GradeTooHighException: std::exception{

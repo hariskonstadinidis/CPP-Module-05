@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 20:21:57 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/10/15 21:10:01 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/27 16:26:31 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,18 @@ class AForm;
 
 class RobotomyRequestForm: public AForm{
     private:
-        const std::string name;
-        bool              is_signed;
-        const int         grade_sign;
-        const int         grade_exec;
-        
+        std::string target;
+
     public:
         RobotomyRequestForm();
         RobotomyRequestForm(const RobotomyRequestForm &other);
         RobotomyRequestForm& operator=(const RobotomyRequestForm &other);
         ~RobotomyRequestForm();
     
-        RobotomyRequestForm(std::string name);
+        RobotomyRequestForm(std::string target);
     
         void be_signed(Bureaucrat person) override;
+        void execute(Bureaucrat person) const override;
 
         //Exception classes
         class GradeTooHighException: std::exception{

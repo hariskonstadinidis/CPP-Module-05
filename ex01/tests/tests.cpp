@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   tests.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:55:23 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/15 19:28:28 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/26 13:24:53 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
+#include "../../doctest.h"
 #include "../Bureaucrat.hpp"
 #include "../Form.hpp"
 

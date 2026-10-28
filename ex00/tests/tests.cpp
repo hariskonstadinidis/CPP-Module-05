@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   tests.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 16:55:23 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/15 14:21:00 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/21 16:00:56 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
+#include "../../doctest.h"
 #include "../Bureaucrat.hpp"
 
 TEST_CASE("Copy constructor")

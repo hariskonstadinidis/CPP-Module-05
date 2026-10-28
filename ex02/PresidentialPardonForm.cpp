@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 20:25:16 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/10/15 21:09:20 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/28 12:30:36 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,14 @@ PresidentialPardonForm &PresidentialPardonForm::operator=\
     if (this != &other)
     {
         this->is_signed = other.is_signed;
+        this->target = other.name;
     }
     return *this;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string name):\
-AForm("PresidentialPardonForm", 25, 5)
-{
-	std::string filename = name + "_shrubbery";
-	std::cout << filename;
+PresidentialPardonForm::PresidentialPardonForm(std::string target):\
+AForm("PresidentialPardonForm", 25, 5){
+    this->target = target;
 }
 
 void PresidentialPardonForm::be_signed(Bureaucrat person)
@@ -48,6 +47,16 @@ void PresidentialPardonForm::be_signed(Bureaucrat person)
         this->is_signed = true;
     else
         throw AForm::GradeTooLowException();
+}
+
+void PresidentialPardonForm::execute(Bureaucrat person) const{
+    if (person.get_grade() <= this->grade_sign)
+    {
+        AForm::execute(person);
+        std::cout << this->target << " has been pardoned by Zaphod Beeblebrox\n";
+    }
+    else
+        throw std::out_of_range("Not signed\n");
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(){}

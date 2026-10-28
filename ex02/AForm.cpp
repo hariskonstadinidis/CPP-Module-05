@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 15:26:05 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/15 21:06:48 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/27 16:25:06 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ void AForm::be_signed(Bureaucrat person){
     if (person.get_grade() <= this->grade_sign)
         this->is_signed = true;
     else
+        throw GradeTooLowException();
+}
+
+void AForm::execute(Bureaucrat person) const{
+    if (this->is_signed != true)
+        throw(std::out_of_range("form is not signed\n"));
+    if (person.get_grade() > this->grade_exec)
         throw GradeTooLowException();
 }
 

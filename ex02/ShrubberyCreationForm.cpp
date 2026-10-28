@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 19:53:35 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/10/15 21:23:29 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/27 16:38:37 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,10 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return *this;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name):\
-AForm("ShrubberyCreationForm", 25, 5)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):\
+AForm("ShrubberyCreationForm", 145, 137)
 {
-    std::string filename = name + "_shrubbery";
-	std::ofstream file("ASCII");
-	if (!file.is_open())
-		throw 1;
+    this->target = target;
 }
 
 void ShrubberyCreationForm::be_signed(Bureaucrat person){
@@ -46,6 +43,20 @@ void ShrubberyCreationForm::be_signed(Bureaucrat person){
         this->is_signed = true;
     else
         throw AForm::GradeTooLowException();
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat person) const{
+     if (person.get_grade() <= this->grade_sign)
+    {
+        AForm::execute(person);
+        std::string filename = target + "_shrubbery";
+	    std::ofstream file(filename);
+	    if (!file.is_open())
+		    throw std::out_of_range("file failed to open\n");
+        file << "  /\\\n /  \\\n  ||\n";
+    }
+    else
+        throw std::out_of_range("Not signed\n");
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}

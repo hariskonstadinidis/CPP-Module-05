@@ -1,0 +1,64 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/13 10:55:28 by hariskon          #+#    #+#             */
+/*   Updated: 2026/10/28 12:14:58 by hariskon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+
+int main()
+{
+    try
+    {
+        Bureaucrat b("haris", 145);
+        Bureaucrat a(Bureaucrat("john", 1));
+        Bureaucrat d = a;
+        Bureaucrat c("nikos", 150);
+        
+        ShrubberyCreationForm s_fa("home");
+        PresidentialPardonForm r_fb("home");
+        RobotomyRequestForm    c_fs("home");
+        
+        std::cout << std::boolalpha;
+        std::cout << s_fa.get_is_signed() << "\n";
+        std::cout << r_fb.get_is_signed() << "\n";
+        
+        
+        a.sign_form(s_fa);
+        a.sign_form(r_fb);
+        c.sign_form(s_fa);
+        
+        std::cout << s_fa.get_is_signed() << "\n";
+        std::cout << r_fb.get_is_signed() << "\n";
+        std::cout << std::noboolalpha;
+        
+
+        a.sign_form(c_fs);
+        a.executeForm(s_fa);
+        a.executeForm(r_fb);
+        a.executeForm(c_fs);
+    }
+    
+    catch(AForm::GradeTooHighException &e)
+    {
+        std::cout << e.what() << "\n";
+    }
+    catch(AForm::GradeTooLowException &e)
+    {
+        std::cout << e.what() << "\n";
+    }
+    catch(int &e)
+    {
+        std::cout << "open failed\n";
+    }
+}

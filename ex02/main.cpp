@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 10:55:28 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/15 21:22:13 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/28 12:14:58 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@ int main()
         Bureaucrat c("nikos", 150);
         
         ShrubberyCreationForm s_fa("home");
-        ShrubberyCreationForm r_fb("home");
+        PresidentialPardonForm r_fb("home");
+        RobotomyRequestForm    c_fs("home");
         
+        std::cout << std::boolalpha;
         std::cout << s_fa.get_is_signed() << "\n";
         std::cout << r_fb.get_is_signed() << "\n";
+        
         
         a.sign_form(s_fa);
         a.sign_form(r_fb);
@@ -37,6 +40,13 @@ int main()
         
         std::cout << s_fa.get_is_signed() << "\n";
         std::cout << r_fb.get_is_signed() << "\n";
+        std::cout << std::noboolalpha;
+        
+
+        a.sign_form(c_fs);
+        a.executeForm(s_fa);
+        a.executeForm(r_fb);
+        a.executeForm(c_fs);
     }
     
     catch(AForm::GradeTooHighException &e)

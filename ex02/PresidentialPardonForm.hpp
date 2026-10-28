@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 20:25:13 by hkonstan          #+#    #+#             */
-/*   Updated: 2026/10/15 21:10:35 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/27 16:23:53 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ class Bureaucrat;
 class AForm;
 
 class PresidentialPardonForm: public AForm{
-      
+    private:
+        std::string target;
+    
     public:
         PresidentialPardonForm();
         PresidentialPardonForm(const PresidentialPardonForm &other);
@@ -27,6 +29,7 @@ class PresidentialPardonForm: public AForm{
         PresidentialPardonForm(std::string name);
     
         void be_signed(Bureaucrat person) override;
+        void execute(Bureaucrat person) const override;
         
         //Exception classes
         class GradeTooHighException: std::exception{

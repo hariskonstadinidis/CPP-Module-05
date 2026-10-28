@@ -34,6 +34,7 @@ test: $(NAME)
 
 clean:
 	@rm -rf $(BUILD_DIR)
+	rm -f *_shrubbery
 
 fclean: clean
 	@rm -f $(NAME)

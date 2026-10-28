@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkonstan <hkonstan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hariskon <hariskonstadinidis@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 15:26:02 by hariskon          #+#    #+#             */
-/*   Updated: 2026/10/15 21:06:59 by hkonstan         ###   ########.fr       */
+/*   Updated: 2026/10/27 16:26:12 by hariskon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ class AForm{
     
         AForm(std::string name, int grade_sign, int grade_exec);
     
-        virtual void be_signed(Bureaucrat person) = 0;
-
+        virtual void    be_signed(Bureaucrat person) = 0;
+        virtual void    execute(Bureaucrat person) const;
+        
         //Getters
         std::string   get_name() const;
         bool          get_is_signed();
